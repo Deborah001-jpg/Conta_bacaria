@@ -2,6 +2,7 @@ package conta_bancaria;
 
 import java.util.Scanner;
 
+import conta_bancaria.model.Conta;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -10,6 +11,18 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
+		
+		// Criar Objetos da Classe conta para teste
+		
+		Conta c1= new Conta(1, 123 ,1 , "Deborah Rodrigues", 100000.0f);
+		c1.visualizar();
+		c1.sacar(1000.00f);
+		c1.visualizar();
+		c1.depositar(5000.00f);
+		c1.visualizar();
+		
+		
+		
 
 		while (true) {
 
