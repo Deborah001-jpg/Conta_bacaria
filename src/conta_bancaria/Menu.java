@@ -3,27 +3,54 @@ package conta_bancaria;
 import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.util.Cores;
+import conta_bancaria.model.ContaPoupanca;
 
+
+
+@SuppressWarnings("unused")
 public class Menu {
+	
+	
 	public static void main(String[] args) {
 
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
-		
-		// Criar Objetos da Classe conta para teste
-		
-		Conta c1= new Conta(1, 123 ,1 , "Deborah Rodrigues", 100000.0f);
-		c1.visualizar();
-		c1.sacar(1000.00f);
-		c1.visualizar();
-		c1.depositar(5000.00f);
-		c1.visualizar();
+	
 		
 		
-		
+		// Teste da Classe Conta
+				Conta c11 = new Conta(1, 123, 1, "Adriana", 10000.0f);
+				c11.visualizar();
+				c11.sacar(12000.0f);
+				c11.visualizar();
+				c11.depositar(5000.0f);
+				c11.visualizar();
 
+				// Teste da Classe Conta Corrente
+				ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Mariana", 15000.0f, 1000.0f);
+				cc1.visualizar();
+				cc1.sacar(12000.0f);
+				cc1.visualizar();
+				cc1.depositar(5000.0f);
+				cc1.visualizar();
+				
+				// Teste da Classe Conta Poupança
+				ContaPoupanca cp1 = new ContaPoupanca(3, 123, 2, "Victor", 100000.0f, 15);
+				cp1.visualizar();
+				cp1.sacar(1000.0f);
+				cp1.visualizar();
+				cp1.depositar(5000.0f);
+				cp1.visualizar();
+
+				
+				
+				
+				
+				
+				
 		while (true) {
 
 			
