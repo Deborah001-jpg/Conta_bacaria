@@ -19,9 +19,9 @@ public class Menu {
 
 		ContaController contas = new ContaController();
 
-		int opcao, numero, agencia, tipo, aniversario;
+		int opcao, numero, agencia, tipo, aniversario, numeroDestino;
 		String titular;
-		float saldo, limite;
+		float saldo, limite, valor;
 
 		ContaCorrente cc1 = new ContaCorrente(contas.gerarNumero(), 123, 1, "José da Silva", 1000.00f, 100.00f);
 		contas.cadastrar(cc1);
@@ -160,7 +160,7 @@ public class Menu {
 						aniversario = leia.nextInt();
 						contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
 					}
-				
+
 					}
 
 				} else
@@ -182,22 +182,49 @@ public class Menu {
 				break;
 			case 6:
 				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Saque\n\n");
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
 
+				System.out.println("Digite o valor do Saque: ");
+				valor = leia.nextFloat();
+
+				contas.sacar(numero, valor);
 				keyPress();
 
 				break;
 			case 7:
 				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Depósito\n\n");
+				System.out.println("Digite o número da conta: ");
+				numero = leia.nextInt();
 
+				System.out.println("Digite o valor do Depósito: ");
+				valor = leia.nextFloat();
+
+				contas.depositar(numero, valor);
 				keyPress();
 
 				break;
 			case 8:
 				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Transferência entre Contas\n\n");
+				System.out.println("Digite o número da Conta de Origem: ");
+				numero = leia.nextInt();
+				
+				System.out.println("Digite o número da Conta de Destino: ");
+				numeroDestino = leia.nextInt();
+				
+				if (numero != numeroDestino) {
+				
+					System.out.println("Digite o valor do Depósito: ");
+					valor = leia.nextFloat();
 
+					contas.transferir(numero, numeroDestino, valor);
+					
+				}else
+					System.out.println("Os números das Contas são iguais!");
+				
 				keyPress();
-
 				break;
+			
 			default:
 				System.out.println(Cores.TEXT_PURPLE_BOLD + "\nOpção Inválida!\n");
 				keyPress();
